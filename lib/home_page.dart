@@ -1,5 +1,7 @@
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:translator/content/buttons.dart';
+import 'package:translator/content/speech_to_text.dart';
+import 'package:translator/content/translated.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,15 +14,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () => {print('Pressed')}, 
-              child: Icon(Icons.mic))
-          ],
-        ),
+      appBar: AppBar(
+        title: Text('Text to Speech Converter'),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Translated(),
+          Buttons(),
+          SpeechScreen(),
+        ],
       ),
     );
   }
